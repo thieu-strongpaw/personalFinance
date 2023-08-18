@@ -11,4 +11,4 @@
 
 This was my second try at a class diagram. I did my best to plan it out before I put code on the screen!
 
-![A UML class diagram of the Personal Finance App](media\budget_app_models.jpg "Personal Finance App UML")
+![A UML class diagram of the Personal Finance App](media/budget_app_models.jpg "Personal Finance App UML")
