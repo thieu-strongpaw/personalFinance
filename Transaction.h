@@ -4,6 +4,10 @@
 // Header file for Transaction class
 // this class will hold the individual transactions for an Account
 
+/* 
+Last updated on 8/17/23
+*/
+
 #pragma once
 
 #include <iostream>
@@ -28,23 +32,3 @@ public:
     const std::time_t getTimeStamp() const;
     Transaction operator+(const Transaction& trans);
 };
-/* 
-Transaction operator+(const Transaction& lhs, const Transaction& rhs){
-    return Transaction { lhs.getAmount() + rhs.getAmount() };
-} */
-
-
-
-
-/*
-- m_transactionID: intjj
-- m_transactionAmount: double
-- m_transactionTimeStamp: date/time
-
-+ getAmount(): double
-+ getID(): int
-+ getTimeStamp(): date/time
-+ setAmount(double): void
-- setTime/Stamp: void
-- setID: void
-*/

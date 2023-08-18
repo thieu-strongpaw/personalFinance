@@ -8,7 +8,6 @@
 
 int Transaction::nextID = {0};
 
-
 Transaction::Transaction()
     : m_transactionID { nextID++ }, m_transactionTimeStamp { std::time(nullptr)}
 {
@@ -29,7 +28,7 @@ Transaction::Transaction(double amount,int month, int day)
       m_transactionAmount { amount }
       
 {
-    // we must convert a julin date to time_t
+    // This needs to be cleaned up. Maybe abstracted into a function. 
     
     time_t now;
     struct tm * tempTimeInfo;
