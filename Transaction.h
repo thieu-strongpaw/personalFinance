@@ -25,7 +25,7 @@ private:
 public:
     Transaction();
     Transaction(double);
-    Transaction(double, int, int);
+    Transaction(double, int, int); // the two ints are for (month, day)
     void setAmount(double);
     int getID() const;
     double getAmount() const;

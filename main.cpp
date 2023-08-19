@@ -14,7 +14,7 @@ int main(){
     testTrany1.setAmount(44.44);
     testTrany2.setAmount(77.43);
     Transaction testTrany3{20};
-    Transaction testTrany4{ 33.33, 1, 1 };
+    Transaction testTrany4{ 33.33 };
 
 
 
@@ -31,7 +31,5 @@ int main(){
 
     // The following code test EndOfDayBalance
 
-    EndOfDayBalance bal0{ 100.11 };
-    using namespace std;
-    cout << bal0.getEODAmount() << endl;
+    
 }

@@ -3,6 +3,14 @@
 // Transaction.h
 // Header file for Transaction class
 
+/*
+
+The default constructor makes a time stamp of the current local time.
+If the constructor is passed a double that is set as the m_transactionAmount
+The constructor is passed a (double, int, int) the first int is the month and
+the second int is the day.
+*/
+
 #include "Transaction.h"
 #include <time.h>
 
@@ -34,7 +42,7 @@ Transaction::Transaction(double amount,int month, int day)
     struct tm * tempTimeInfo;
     time(&now);
     tempTimeInfo = localtime (&now);
-    tempTimeInfo->tm_mon = month - 1; // the minus one is so jan can be entered with a 1 instead of a 0.
+    tempTimeInfo->tm_mon = month; // the minus one is so jan can be entered with a 1 instead of a 0.
     tempTimeInfo->tm_mday = day;
     m_transactionTimeStamp = mktime(tempTimeInfo);
 }

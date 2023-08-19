@@ -1,17 +1,27 @@
 #include "EndOfDayBalance.h"
 
-EndOfDayBalance::EndOfDayBalance(double amount)
+EndOfDayBalance::EndOfDayBalance(int month, int day)
+    : m_date {}
 {
-    m_date = time(nullptr);
-    m_eodAmount = amount;
+    m_date.tm_mon = month;
+    m_date.tm_mday = day;
 }
 
-double EndOfDayBalance::getEODAmount() const
+double EndOfDayBalance::getEODAmount() 
 {
+    m_eodAmount = 0;
+    for(auto t : m_vectorOfTransaction){
+        m_eodAmount += t.getAmount();
+    }
     return m_eodAmount;
 }
 
-void EndOfDayBalance::updateEOD(double amount)
+void EndOfDayBalance::addTransaction(Transaction newTransaction)
 {
-    m_eodAmount += amount;
+    m_vectorOfTransaction.push_back(newTransaction);
+}
+
+tm EndOfDayBalance::getDate()
+{
+    return m_date;
 }

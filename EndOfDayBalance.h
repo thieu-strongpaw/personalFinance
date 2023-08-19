@@ -2,18 +2,22 @@
 // stores the end of day balance for the account
 
 #pragma once
-
+#include <vector>
 #include <time.h>
+#include "Transaction.h"
 
 class EndOfDayBalance{
     private:
         double m_eodAmount;
-        time_t m_date;
+        struct tm m_date;
+        std::vector<Transaction> m_vectorOfTransaction;
+        
     public:
-        EndOfDayBalance() = delete;
-        EndOfDayBalance(double);
-        double getEODAmount() const;
-        void updateEOD(double);
+        EndOfDayBalance()  = delete;
+        EndOfDayBalance(int month, int day);
+        double getEODAmount() ;
+        void addTransaction(Transaction);
+        struct tm getDate();
 
 };
 
