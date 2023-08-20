@@ -3,8 +3,13 @@
 EndOfDayBalance::EndOfDayBalance(int month, int day)
     : m_date {}
 {
-    m_date.tm_mon = month;
-    m_date.tm_mday = day;
+    // make tm to hold month and day
+    struct tm tempTime {};
+    tempTime.tm_mon = month;
+    tempTime.tm_mday = day;
+
+    //convert tm to time_t
+    m_date = mktime(&tempTime);
 }
 
 double EndOfDayBalance::getEODAmount() 
@@ -21,7 +26,12 @@ void EndOfDayBalance::addTransaction(Transaction newTransaction)
     m_vectorOfTransaction.push_back(newTransaction);
 }
 
-tm EndOfDayBalance::getDate()
+time_t EndOfDayBalance::getDate() const
 {
     return m_date;
+}
+
+bool EndOfDayBalance::operator==(const EndOfDayBalance &rhs) const
+{
+    return (m_date == rhs.m_date);
 }

@@ -4,6 +4,7 @@
 #include <string>
 #include "Transaction.h"
 #include "EndOfDayBalance.h"
+#include "Account.h"
 
 int main(){
 
@@ -29,7 +30,14 @@ int main(){
 
     ////
 
-    // The following code test EndOfDayBalance
+    // The following code test Account
 
+    Account testAcc1 {};
+    Account testAcc2 { "Test Account 2" };
+    std::cout << "This is the testAcc1 ID : " << testAcc1.getAccountID() << std::endl;
+    std::cout << "This is the testAcc2 ID : " << testAcc2.getAccountID() << std::endl;
+
+    testAcc1.addEODDay(1,1);
+    testAcc1.addEODDay(1,1);
     
 }

@@ -9,7 +9,7 @@
 class EndOfDayBalance{
     private:
         double m_eodAmount;
-        struct tm m_date;
+        std::time_t m_date;
         std::vector<Transaction> m_vectorOfTransaction;
         
     public:
@@ -17,10 +17,10 @@ class EndOfDayBalance{
         EndOfDayBalance(int month, int day);
         double getEODAmount() ;
         void addTransaction(Transaction);
-        struct tm getDate();
+        time_t getDate() const;
+        [[nodiscard]] bool operator==(const EndOfDayBalance &rhs) const;
 
 };
-
 
 
 /*

@@ -16,16 +16,16 @@ class Account
         const int m_accountID;
         std::string  m_accountName;
         double m_accountBalance;
-        std::vector<Transaction> m_transactionRecord;
         std::vector<EndOfDayBalance> m_EODRecord;
 
     public:
         Account();
+        Account(std::string);
 
         void setAccountName(std::string);
         std::string getAccountName() const;
 
-        void addEODDay();
+        void addEODDay(int, int);
 
         void addTransaction(double amount, int month, int day);
         void listTransactions(); // this is a helper function. not sure how it will fit in
@@ -34,6 +34,8 @@ class Account
         double getAccountBalance() const;
 
         double getEODBalance(int month, int day);
+
+        int getAccountID() const;
 
 
 };
