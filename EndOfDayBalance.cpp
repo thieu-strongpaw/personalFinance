@@ -21,6 +21,13 @@ double EndOfDayBalance::getEODAmount()
     return m_eodAmount;
 }
 
+void EndOfDayBalance::listTransactions() const
+{
+    for (auto record : m_vectorOfTransaction){
+        std::cout << "Record : " << record.getID() << " has " << record.getAmount() << std::endl;
+    }
+}
+
 void EndOfDayBalance::addTransaction(Transaction newTransaction)
 {
     m_vectorOfTransaction.push_back(newTransaction);

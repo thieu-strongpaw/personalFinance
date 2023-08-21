@@ -23,8 +23,7 @@ private:
     std::time_t m_transactionTimeStamp; 
 
 public:
-    Transaction();
-    Transaction(double);
+    Transaction() = delete; 
     Transaction(double, int, int); // the two ints are for (month, day)
     void setAmount(double);
     int getID() const;

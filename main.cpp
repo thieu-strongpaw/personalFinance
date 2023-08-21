@@ -10,12 +10,10 @@ int main(){
 
     // THis code tests Transaction
 
-    Transaction testTrany1;
-    Transaction testTrany2;
-    testTrany1.setAmount(44.44);
-    testTrany2.setAmount(77.43);
-    Transaction testTrany3{20};
-    Transaction testTrany4{ 33.33 };
+    Transaction testTrany1 {11.11, 1, 1 };
+    Transaction testTrany2 {22.22, 1, 1 };
+    Transaction testTrany3 {33.33, 1, 1 };
+    Transaction testTrany4 {44.44, 1, 1 };
 
 
 
@@ -39,5 +37,9 @@ int main(){
 
     testAcc1.addEODDay(1,1);
     testAcc1.addEODDay(1,1);
+    testAcc1.addTransaction(100, 1, 1);
+    testAcc1.addTransaction(200, 1, 1);
+    std::cout << testAcc1.getEODBalance(1,1) << std::endl;
+    testAcc1.listTransactions(1,1);
     
 }

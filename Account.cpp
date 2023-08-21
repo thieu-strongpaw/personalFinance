@@ -53,8 +53,48 @@ void Account::addEODDay(int month, int day)
 
 void Account::addTransaction(double amount, int month, int day)
 {
+    Transaction transToAdd { amount, month, day };
+    EndOfDayBalance EODtoCompare { month, day };
+    auto iter = std::find(m_EODRecord.begin(), m_EODRecord.end(), EODtoCompare);
     
-    
+    if (m_EODRecord.end() == m_EODRecord.begin()) { 
+        addEODDay(month, day);
+        addTransaction(amount, month, day);
+    }else if(iter != m_EODRecord.end()){
+        iter->addTransaction(transToAdd);
+    }else{
+        std::cout << "-- It did not push the transaciton to EOD." << std::endl;
+    }       
+}
+
+void Account::listTransactions(int month, int day)
+{
+    EndOfDayBalance EODtoCompare { month, day };
+    auto iter = std::find(m_EODRecord.begin(), m_EODRecord.end(), EODtoCompare);
+    if (m_EODRecord.end() == m_EODRecord.begin()) { 
+        std::cout << "No records" << std::endl;
+    }else if(iter != m_EODRecord.end()){
+        iter->listTransactions();
+    }else{
+        std::cout << "EOD date not found. " << std::endl;
+    };
+}
+
+double Account::getEODBalance(int month, int day)
+{
+    double bal{};
+    EndOfDayBalance EODtoCompare { month, day };
+    auto iter = std::find(m_EODRecord.begin(), m_EODRecord.end(), EODtoCompare);
+    if (m_EODRecord.end() == m_EODRecord.begin()) { 
+        std::cout << "No EOD record empty. " << std::endl;
+    }else if(iter != m_EODRecord.end()){
+        for(auto record : m_EODRecord){
+            bal += record.getEODAmount();
+        }
+    }else{
+        std::cout << "EOD date not found. " << std::endl;
+    };
+    return bal;
 }
 
 int Account::getAccountID() const

@@ -16,6 +16,7 @@ class EndOfDayBalance{
         EndOfDayBalance()  = delete;
         EndOfDayBalance(int month, int day);
         double getEODAmount() ;
+        void listTransactions() const;
         void addTransaction(Transaction);
         time_t getDate() const;
         [[nodiscard]] bool operator==(const EndOfDayBalance &rhs) const;
@@ -23,10 +24,3 @@ class EndOfDayBalance{
 };
 
 
-/*
-- m_eodAmount: double
-- m_eodTimeStamp: date/time
-
-+ getEODAmount(): double
-+ getEODTimeStamp(): date/time
-*/

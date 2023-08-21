@@ -28,7 +28,7 @@ class Account
         void addEODDay(int, int);
 
         void addTransaction(double amount, int month, int day);
-        void listTransactions(); // this is a helper function. not sure how it will fit in
+        void listTransactions(int month, int day); // this is a helper function. not sure how it will fit in
         void alterTransaction(int transactionNumber, double newAmount);
 
         double getAccountBalance() const;
