@@ -60,8 +60,11 @@ void Account::addTransaction(double amount, int month, int day)
     if (m_EODRecord.end() == m_EODRecord.begin()) { 
         addEODDay(month, day);
         addTransaction(amount, month, day);
+        m_accountBalance += amount;
     }else if(iter != m_EODRecord.end()){
         iter->addTransaction(transToAdd);
+        m_accountBalance += amount;
+    }else if(iter != m_EODRecord.end()){
     }else{
         std::cout << "-- It did not push the transaciton to EOD." << std::endl;
     }       
@@ -78,6 +81,11 @@ void Account::listTransactions(int month, int day)
     }else{
         std::cout << "EOD date not found. " << std::endl;
     };
+}
+
+double Account::getAccountBalance() const
+{
+    return m_accountBalance;
 }
 
 double Account::getEODBalance(int month, int day)

@@ -39,7 +39,8 @@ int main(){
     testAcc1.addEODDay(1,1);
     testAcc1.addTransaction(100, 1, 1);
     testAcc1.addTransaction(200, 1, 1);
+    testAcc1.addTransaction(-50.,1, 1);
     std::cout << testAcc1.getEODBalance(1,1) << std::endl;
     testAcc1.listTransactions(1,1);
-    
+    std::cout << testAcc1.getAccountBalance() << std::endl;
 }
